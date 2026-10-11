@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>纸上美术馆 · The Paper Museum</title>
-    <link>https://yourname.github.io/</link>
-    <description>简的私人档案馆：写作、代码、阅读与缓慢积累的利息。</description>
+    <title>靛蓝档案 · Indigo Archive</title>
+    <link>https://jaysgj67-netizen.github.io/</link>
+    <description>简的私人档案馆：主页展出亮面，日记藏在暗面。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 11 Oct 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 00:00:00 +0800</lastBuildDate>
     <item>
       <title>一个关于留白的早晨</title>
-      <link>https://yourname.github.io/#/blog</link>
+      <link>https://jaysgj67-netizen.github.io/#/blog</link>
       <guid>diary-082</guid>
       <pubDate>Fri, 09 Oct 2026 00:00:00 +0800</pubDate>
       <description>今天刻意不排满日程。留给走路、发呆和重读旧信的时间，比任何会议都值钱。</description>
     </item>
     <item>
       <title>本周：归档、重读、修剪</title>
-      <link>https://yourname.github.io/#/blog</link>
+      <link>https://jaysgj67-netizen.github.io/#/blog</link>
       <guid>weekly-w40</guid>
       <pubDate>Sun, 04 Oct 2026 00:00:00 +0800</pubDate>
       <description>归档 14 篇草稿；重读年度目标，砍掉两个不再重要的方向；跑步三次。</description>

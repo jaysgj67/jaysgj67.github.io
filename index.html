@@ -3,188 +3,199 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>纸上美术馆 · The Paper Museum — 简的私人档案馆</title>
-<meta name="description" content="这里只收藏一个人的生活：写作、代码、阅读，与缓慢积累的利息。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='6' fill='%23c96442'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23f4f1e8' font-family='serif'%3E简%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Spectral:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@400;600&display=swap">
+<title>靛蓝档案 · Indigo Archive — 简的私人档案馆</title>
+<meta name="description" content="主页展出亮面：写作、代码与出版物。日记藏在暗面：那些真实的、未经修饰的思考。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%23141a36'/%3E%3Cpath d='M32 12a20 20 0 1 0 0 40 20 20 0 0 1 0-40z' fill='%234dd8d0'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* ============ 设计令牌：纸上美术馆 ============ */
+/* ============ 设计令牌：靛蓝档案 ============ */
 :root{
-  --paper:#f4f1e8;
-  --paper-deep:#eae4d4;
-  --paper-lift:#faf8f1;
-  --ink:#1c1917;
-  --ink-soft:#57504a;
-  --terracotta:#c96442;
-  --terracotta-deep:#a34e33;
-  --teal:#5b7f86;
-  --ochre:#8a5a2e;
-  --line:rgba(28,25,23,0.16);
-  --line-soft:rgba(28,25,23,0.10);
-  --display:'Spectral','Noto Serif SC',Georgia,'Songti SC','SimSun',serif;
-  --body:'Noto Serif SC','Spectral',Georgia,'Songti SC','SimSun',serif;
+  --night:#0d1226;
+  --night-2:#141a36;
+  --night-3:#1b2347;
+  --moon:#eef1f9;
+  --moon-dim:#9aa3c7;
+  --indigo:#2b3a8f;
+  --indigo-bright:#4658d9;
+  --cyan:#4dd8d0;
+  --amber:#ffb454;
+  --line:rgba(238,241,249,0.13);
+  --line-soft:rgba(238,241,249,0.07);
+  --display:'Space Grotesk','Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+  --body:'Noto Sans SC','Space Grotesk','PingFang SC','Microsoft YaHei',sans-serif;
   --mono:'JetBrains Mono','SFMono-Regular',Consolas,monospace;
-  --hand:'Caveat','Kaiti SC','KaiTi',cursive;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{
-  font-family:var(--body);
-  background-color:var(--paper);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-  color:var(--ink);
-  line-height:1.9;
-  font-size:15px;
-  -webkit-font-smoothing:antialiased;
+  font-family:var(--body);background-color:var(--night);color:var(--moon);
+  background-image:
+    radial-gradient(1px 1px at 18% 26%, rgba(238,241,249,0.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 72% 58%, rgba(238,241,249,0.38) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 42% 82%, rgba(77,216,208,0.42) 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 18%, rgba(238,241,249,0.45) 50%, transparent 51%),
+    radial-gradient(1px 1px at 55% 12%, rgba(238,241,249,0.3) 50%, transparent 51%),
+    linear-gradient(rgba(238,241,249,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(238,241,249,0.045) 1px, transparent 1px);
+  background-size:340px 340px,270px 270px,310px 310px,290px 290px,260px 260px,44px 44px,44px 44px;
+  background-attachment:fixed;
+  line-height:1.9;font-size:15px;-webkit-font-smoothing:antialiased;
 }
 a{color:inherit;text-decoration:none;}
 img{max-width:100%;display:block;}
-::selection{background:var(--terracotta);color:var(--paper-lift);}
+::selection{background:var(--cyan);color:var(--night);}
 
 /* ============ 通用构件 ============ */
 .wrap{max-width:1060px;margin:0 auto;padding:0 24px;}
 .eyebrow{
-  font-family:var(--mono);font-size:12px;letter-spacing:0.14em;
-  color:var(--teal);text-transform:uppercase;display:flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:12px;letter-spacing:0.18em;color:var(--cyan);
+  text-transform:uppercase;display:flex;align-items:center;gap:10px;
 }
-.eyebrow::before{content:"";width:26px;height:1px;background:var(--terracotta);display:inline-block;}
-.section-title{
-  font-family:var(--display);font-weight:600;font-size:clamp(30px,5vw,46px);
-  letter-spacing:-0.01em;line-height:1.25;margin-top:10px;
-}
-.section-sub{color:var(--ink-soft);font-size:14.5px;max-width:560px;margin-top:12px;}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--cyan);display:inline-block;box-shadow:0 0 8px rgba(77,216,208,0.7);}
+.section-title{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,46px);letter-spacing:-0.01em;line-height:1.2;margin-top:10px;}
+.section-sub{color:var(--moon-dim);font-size:14.5px;max-width:560px;margin-top:12px;}
 
-/* 印章 */
-.seal{
-  display:inline-flex;align-items:center;justify-content:center;
-  font-family:var(--display);font-weight:600;
-  color:var(--terracotta);border:1.5px solid var(--terracotta);
-  border-radius:50%;width:44px;height:44px;font-size:17px;
-  transform:rotate(-8deg);flex-shrink:0;transition:transform .25s ease,background .25s ease,color .25s ease;
-}
-.seal.sq{border-radius:7px;width:auto;height:auto;padding:5px 10px;font-size:12px;letter-spacing:0.2em;transform:rotate(-3deg);font-family:var(--mono);}
-.seal:hover{transform:rotate(-3deg) scale(1.04);background:var(--terracotta);color:var(--paper-lift);}
+/* 状态点 */
+.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px rgba(77,216,208,0.8);display:inline-block;flex-shrink:0;}
+.dot.amber{background:var(--amber);box-shadow:0 0 8px rgba(255,180,84,0.7);}
+.dot.dim{background:var(--moon-dim);box-shadow:none;}
 
-/* 展签 */
-.label-card{
-  position:relative;background:var(--paper-lift);
-  border:1px solid var(--line);border-radius:3px;
-  padding:20px 20px 16px;transition:box-shadow .3s ease,transform .3s ease,border-color .3s ease;
-  display:flex;flex-direction:column;gap:8px;
+/* 卡片 */
+.card{
+  position:relative;background:rgba(20,26,54,0.55);border:1px solid var(--line);border-radius:8px;
+  padding:20px;display:flex;flex-direction:column;gap:8px;
+  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
 }
-.label-card::after{
-  content:"";position:absolute;left:20px;right:20px;bottom:0;height:1px;background:var(--line-soft);
-}
-.label-card:hover{transform:translateY(-3px);border-color:var(--terracotta);box-shadow:0 10px 24px -14px rgba(28,25,23,0.35);}
-.label-no{font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:0.1em;}
-.label-title{font-family:var(--display);font-size:19px;font-weight:600;line-height:1.45;}
-.label-title a:hover{color:var(--terracotta);}
-.label-meta{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:6px 14px;}
+.card:hover{transform:translateY(-3px);border-color:rgba(77,216,208,0.55);box-shadow:0 14px 34px -18px rgba(0,0,0,0.8),0 0 0 1px rgba(77,216,208,0.08);}
+.card-no{font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:0.12em;}
+.card-title{font-family:var(--display);font-size:18.5px;font-weight:500;line-height:1.45;}
+.card-title a:hover{color:var(--cyan);}
+.card-meta{font-family:var(--mono);font-size:11.5px;color:var(--moon-dim);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;}
+.card-excerpt{font-size:13.5px;color:var(--moon-dim);line-height:1.85;}
+
+/* 标签 */
 .tag{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:0.06em;color:var(--ochre);
-  border:1px solid rgba(138,90,46,0.45);border-radius:99px;padding:1px 9px;white-space:nowrap;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:0.06em;color:var(--amber);
+  border:1px solid rgba(255,180,84,0.4);border-radius:99px;padding:1px 9px;white-space:nowrap;
 }
-.tag.teal{color:var(--teal);border-color:rgba(91,127,134,0.45);}
-
-/* 印章徽记（新/周/年） */
-.badge{
-  position:absolute;top:-11px;right:14px;font-family:var(--mono);font-size:10px;letter-spacing:0.18em;
-  color:var(--paper-lift);background:var(--terracotta);border-radius:3px;padding:3px 8px;transform:rotate(2deg);
-}
+.tag.cyan{color:var(--cyan);border-color:rgba(77,216,208,0.4);}
+.tag.dim{color:var(--moon-dim);border-color:var(--line);}
 
 /* 按钮 */
 .btn{
-  display:inline-flex;align-items:center;gap:9px;
-  font-family:var(--body);font-size:14px;font-weight:600;
-  border:1px solid var(--ink);border-radius:3px;padding:11px 22px;
-  transition:background .25s ease,color .25s ease,border-color .25s ease;cursor:pointer;
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:13px;letter-spacing:0.04em;
+  border:1px solid rgba(77,216,208,0.6);border-radius:5px;padding:12px 22px;color:var(--cyan);
+  transition:all .25s ease;cursor:pointer;background:transparent;
 }
-.btn.primary{background:var(--terracotta);border-color:var(--terracotta);color:var(--paper-lift);}
-.btn.primary:hover{background:var(--terracotta-deep);}
-.btn.ghost:hover{background:var(--ink);color:var(--paper-lift);}
+.btn.primary{background:var(--cyan);border-color:var(--cyan);color:var(--night);font-weight:500;}
+.btn.primary:hover{background:#7ce4de;box-shadow:0 0 22px rgba(77,216,208,0.35);}
+.btn.ghost:hover{background:rgba(77,216,208,0.12);border-color:var(--cyan);}
 .btn .arrow{transition:transform .25s ease;}
 .btn:hover .arrow{transform:translateX(4px);}
 
 /* ============ 顶栏 ============ */
 .topbar{
   position:sticky;top:0;z-index:50;
-  background:rgba(244,241,232,0.92);backdrop-filter:blur(6px);
+  background:rgba(13,18,38,0.86);backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line-soft);
 }
-.topbar-inner{display:flex;align-items:center;gap:18px;padding:13px 0;}
-.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:0.02em;}
-.brand .seal{width:36px;height:36px;font-size:14px;}
-.brand-en{font-family:var(--mono);font-size:9.5px;letter-spacing:0.22em;color:var(--ink-soft);display:block;margin-top:-4px;text-transform:uppercase;}
-nav.main{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
+.topbar-inner{display:flex;align-items:center;gap:18px;padding:12px 0;}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:0.02em;}
+.moon-mark{width:30px;height:30px;flex-shrink:0;}
+.brand-en{font-family:var(--mono);font-size:9.5px;letter-spacing:0.22em;color:var(--moon-dim);display:block;margin-top:-3px;text-transform:uppercase;}
+nav.main{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
 nav.main::-webkit-scrollbar{display:none;}
 nav.main a{
-  font-family:var(--mono);font-size:12.5px;letter-spacing:0.05em;color:var(--ink-soft);
-  padding:8px 12px;border-radius:3px;white-space:nowrap;transition:color .2s ease,background .2s ease;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;color:var(--moon-dim);
+  padding:8px 12px;border-radius:5px;white-space:nowrap;transition:color .2s ease,background .2s ease;
 }
-nav.main a:hover{color:var(--terracotta);background:rgba(201,100,66,0.08);}
-nav.main a.active{color:var(--terracotta);background:rgba(201,100,66,0.10);}
-nav.main a .idx{color:var(--teal);margin-right:4px;font-size:10.5px;}
+nav.main a:hover{color:var(--cyan);background:rgba(77,216,208,0.08);}
+nav.main a.active{color:var(--cyan);background:rgba(77,216,208,0.12);}
+nav.main a .idx{color:var(--indigo-bright);margin-right:4px;font-size:10.5px;}
 
 /* ============ 视图切换 ============ */
 .view{display:none;}
-.view.active{display:block;animation:pageIn .5s ease both;}
+.view.active{display:block;animation:pageIn .45s ease both;}
 @keyframes pageIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
 
 /* ============ Hero ============ */
-.hero{padding:64px 0 30px;}
+.hero{padding:60px 0 30px;}
 .hero-grid{display:flex;flex-wrap:wrap;gap:44px;align-items:center;}
-.hero-copy{flex:1 1 430px;min-width:0;}
-.hero-kicker{font-family:var(--mono);font-size:12px;letter-spacing:0.2em;color:var(--teal);text-transform:uppercase;display:flex;align-items:center;gap:12px;}
-.hero-kicker::before{content:"";width:34px;height:1px;background:var(--terracotta);}
-.hero-title{
-  font-family:var(--display);font-weight:900;font-size:clamp(44px,7.5vw,76px);
-  line-height:1.08;letter-spacing:-0.015em;margin:20px 0 6px;
-}
-.hero-title .en{display:block;font-family:var(--mono);font-weight:400;font-size:clamp(12px,1.6vw,15px);letter-spacing:0.34em;color:var(--ink-soft);margin-top:14px;text-transform:uppercase;}
-.hero-sub{font-size:16.5px;color:var(--ink-soft);max-width:480px;margin:20px 0 30px;}
+.hero-copy{flex:1 1 440px;min-width:0;}
+.hero-title{font-family:var(--display);font-weight:700;font-size:clamp(42px,7vw,72px);line-height:1.06;letter-spacing:-0.015em;margin:18px 0 6px;}
+.hero-title .en{display:block;font-family:var(--mono);font-weight:400;font-size:clamp(12px,1.6vw,15px);letter-spacing:0.34em;color:var(--cyan);margin-top:14px;text-transform:uppercase;}
+.hero-sub{font-size:15.5px;color:var(--moon-dim);max-width:470px;margin:20px 0 30px;}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
-.hero-note{font-family:var(--hand);font-size:17px;color:var(--terracotta);transform:rotate(-2deg);margin-left:2px;}
 .hero-fig{flex:1 1 400px;min-width:0;}
-.figure{
-  position:relative;border:1px solid var(--line);border-radius:3px;
-  padding:10px;background:var(--paper-lift);
-  box-shadow:0 1px 0 rgba(28,25,23,0.05),0 18px 40px -28px rgba(28,25,23,0.5);
-}
-.figure img{border-radius:2px;}
+.figure{position:relative;border:1px solid var(--line);border-radius:10px;padding:9px;background:rgba(20,26,54,0.5);}
+.figure img{border-radius:6px;}
 .fig-label{
-  position:absolute;left:18px;bottom:18px;background:var(--paper-lift);
-  border:1px solid var(--line);border-radius:3px;padding:8px 14px;
-  font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;color:var(--ink);
-  display:flex;align-items:center;gap:8px;
+  position:absolute;left:16px;bottom:16px;background:rgba(13,18,38,0.82);border:1px solid var(--line);
+  border-radius:6px;padding:7px 13px;font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;
+  color:var(--moon);display:flex;align-items:center;gap:8px;
 }
-.fig-label .dot{width:7px;height:7px;border-radius:50%;background:var(--terracotta);}
+.fig-label .dot{width:6px;height:6px;}
 
-/* 收藏柜 */
+/* 月相刻度 */
+.moon-gauge{
+  margin-top:26px;display:inline-flex;align-items:center;gap:14px;
+  border:1px solid var(--line);border-radius:8px;padding:10px 16px;background:rgba(20,26,54,0.4);
+  font-family:var(--mono);font-size:11.5px;color:var(--moon-dim);letter-spacing:0.06em;
+}
+.moon-gauge svg{width:36px;height:36px;}
+
+/* 终端 */
+.terminal{
+  margin-top:52px;border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  background:rgba(9,13,28,0.75);box-shadow:0 20px 50px -30px rgba(0,0,0,0.9);
+}
+.term-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line-soft);}
+.term-dot{width:10px;height:10px;border-radius:50%;}
+.term-dot.r{background:#e0655a;}.term-dot.y{background:#e8b428;}.term-dot.g{background:#52c41a;}
+.term-title{margin-left:10px;font-family:var(--mono);font-size:11px;color:var(--moon-dim);letter-spacing:0.08em;}
+.term-body{padding:18px 20px;font-family:var(--mono);font-size:13px;line-height:2;min-height:150px;}
+.term-body .prompt{color:var(--cyan);}
+.term-body .cmd{color:var(--moon);}
+.term-body .out{color:var(--moon-dim);}
+.term-body .out.hl{color:var(--amber);}
+.term-cursor{display:inline-block;width:8px;height:16px;background:var(--cyan);vertical-align:text-bottom;animation:blink 1s steps(1) infinite;}
+@keyframes blink{50%{opacity:0;}}
+.term-replay{
+  margin:0 20px 18px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--moon-dim);
+  border:1px solid var(--line);border-radius:5px;padding:7px 14px;background:transparent;cursor:pointer;transition:all .2s ease;
+}
+.term-replay:hover{color:var(--cyan);border-color:var(--cyan);}
+
+/* 数据三栏 */
 .showcase{margin-top:56px;}
 .showcase-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;}
-.showcase-head h2{font-family:var(--display);font-weight:600;font-size:24px;}
-.showcase-head a{font-family:var(--mono);font-size:12px;color:var(--teal);letter-spacing:0.06em;}
-.showcase-head a:hover{color:var(--terracotta);}
+.showcase-head h2{font-family:var(--display);font-weight:500;font-size:24px;}
+.showcase-head a{font-family:var(--mono);font-size:12px;color:var(--cyan);letter-spacing:0.06em;}
+.showcase-head a:hover{color:var(--amber);}
 .showcase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px;}
-.showcase-grid .label-card{min-height:150px;}
+.showcase-grid .card{min-height:150px;}
 
-/* 一句话 About */
+/* 暗面说明 */
 .about-strip{
-  margin-top:64px;border:1px solid var(--line);border-radius:3px;background:var(--paper-deep);
+  margin-top:64px;border:1px solid var(--line);border-radius:10px;
+  background:linear-gradient(120deg, rgba(43,58,143,0.22), rgba(20,26,54,0.4) 55%, rgba(13,18,38,0.2));
   padding:34px 34px 30px;position:relative;overflow:hidden;
 }
-.about-strip::before{content:"❝";position:absolute;top:-26px;left:22px;font-family:var(--display);font-size:120px;color:rgba(201,100,66,0.22);}
-.about-quote{font-family:var(--display);font-size:clamp(20px,3vw,27px);line-height:1.7;font-weight:500;}
-.about-quote em{font-style:normal;color:var(--terracotta);}
+.about-strip::after{
+  content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;
+  border:1px solid rgba(77,216,208,0.22);box-shadow:0 0 0 36px rgba(77,216,208,0.05),0 0 0 72px rgba(77,216,208,0.03);
+}
+.about-quote{font-family:var(--display);font-size:clamp(19px,2.8vw,25px);line-height:1.7;font-weight:400;}
+.about-quote em{font-style:normal;color:var(--cyan);}
 .now-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
 .now-chip{
-  font-family:var(--mono);font-size:11px;letter-spacing:0.05em;color:var(--ink-soft);
-  border:1px solid var(--line);border-radius:99px;padding:6px 14px;background:var(--paper-lift);
+  font-family:var(--mono);font-size:11px;letter-spacing:0.05em;color:var(--moon-dim);
+  border:1px solid var(--line);border-radius:99px;padding:6px 14px;background:rgba(20,26,54,0.5);
 }
-.now-chip b{color:var(--ochre);font-weight:500;}
+.now-chip b{color:var(--amber);font-weight:500;}
 
 /* ============ 视图页头 ============ */
-.page-head{display:flex;flex-wrap:wrap;gap:34px;align-items:flex-end;padding:56px 0 10px;}
+.page-head{display:flex;flex-wrap:wrap;gap:34px;align-items:flex-end;padding:54px 0 10px;}
 .page-head .figure{flex:1 1 300px;min-width:0;max-width:420px;}
 .page-head .figure img{aspect-ratio:4/3;object-fit:cover;}
 .page-copy{flex:1 1 380px;min-width:0;}
@@ -192,133 +203,124 @@ nav.main a .idx{color:var(--teal);margin-right:4px;font-size:10.5px;}
 /* ============ Blog ============ */
 .filters{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 8px;}
 .filter{
-  font-family:var(--mono);font-size:12px;letter-spacing:0.06em;color:var(--ink-soft);
+  font-family:var(--mono);font-size:12px;letter-spacing:0.06em;color:var(--moon-dim);
   border:1px solid var(--line);border-radius:99px;padding:7px 16px;cursor:pointer;background:transparent;
   transition:all .2s ease;
 }
-.filter:hover{border-color:var(--terracotta);color:var(--terracotta);}
-.filter.on{background:var(--ink);border-color:var(--ink);color:var(--paper-lift);}
+.filter:hover{border-color:var(--cyan);color:var(--cyan);}
+.filter.on{background:var(--cyan);border-color:var(--cyan);color:var(--night);font-weight:500;}
 .timeline{position:relative;margin-top:24px;padding-left:34px;}
 .timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:var(--line);}
 .tl-group{margin-bottom:38px;}
 .tl-label{
-  position:relative;font-family:var(--display);font-weight:600;font-size:21px;margin-bottom:16px;
+  position:relative;font-family:var(--display);font-weight:500;font-size:20px;margin-bottom:16px;
   display:flex;align-items:center;gap:14px;
 }
 .tl-label::before{
   content:"";position:absolute;left:-34px;width:15px;height:15px;border-radius:50%;
-  background:var(--paper);border:2px solid var(--terracotta);
+  background:var(--night);border:2px solid var(--cyan);box-shadow:0 0 10px rgba(77,216,208,0.5);
 }
-.tl-label .cnt{font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:0.08em;font-weight:400;}
+.tl-label .cnt{font-family:var(--mono);font-size:11px;color:var(--moon-dim);letter-spacing:0.08em;font-weight:400;}
 .tl-items{display:flex;flex-direction:column;gap:14px;}
-.tl-items .label-card{position:relative;}
-.post-excerpt{font-size:13.5px;color:var(--ink-soft);line-height:1.85;}
-.post-excerpt .more{font-family:var(--mono);font-size:11px;color:var(--teal);margin-left:6px;}
-.post-excerpt .more:hover{color:var(--terracotta);}
-.hand-note{font-family:var(--hand);font-size:15px;color:var(--terracotta);transform:rotate(-1.5deg);display:inline-block;}
+.card-excerpt .more{font-family:var(--mono);font-size:11px;color:var(--cyan);margin-left:6px;}
+.card-excerpt .more:hover{color:var(--amber);}
 
 /* ============ Projects ============ */
 .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:34px;}
-.project-card{
-  position:relative;background:var(--paper-lift);border:1px solid var(--line);border-radius:3px;
-  padding:22px 22px 18px;display:flex;flex-direction:column;gap:10px;
-  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+.repo-card{
+  position:relative;background:rgba(20,26,54,0.55);border:1px solid var(--line);border-radius:10px;
+  padding:20px 20px 16px;display:flex;flex-direction:column;gap:10px;
+  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
 }
-.project-card:hover{transform:translateY(-4px);border-color:var(--terracotta);box-shadow:0 16px 30px -18px rgba(28,25,23,0.4);}
-.pc-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;}
-.pc-no{font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:0.12em;}
-.pc-year{font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
-.pc-title{font-family:var(--display);font-size:20px;font-weight:600;line-height:1.4;}
-.pc-desc{font-size:13.5px;color:var(--ink-soft);}
-.pc-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
-.pc-links{display:flex;gap:18px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line-soft);}
-.pc-links a{font-family:var(--mono);font-size:12px;color:var(--teal);letter-spacing:0.04em;display:inline-flex;align-items:center;gap:6px;}
-.pc-links a:hover{color:var(--terracotta);}
-.status-stamp{
-  position:absolute;top:16px;right:16px;font-family:var(--mono);font-size:10px;letter-spacing:0.16em;
-  border:1.5px solid var(--teal);color:var(--teal);border-radius:3px;padding:3px 8px;transform:rotate(4deg);
-}
-.status-stamp.live{border-color:var(--terracotta);color:var(--terracotta);}
+.repo-card:hover{transform:translateY(-4px);border-color:rgba(77,216,208,0.55);box-shadow:0 16px 34px -18px rgba(0,0,0,0.85);}
+.rc-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.rc-name{font-family:var(--mono);font-size:12px;color:var(--cyan);letter-spacing:0.02em;}
+.rc-year{font-family:var(--mono);font-size:11px;color:var(--moon-dim);}
+.rc-title{font-family:var(--display);font-size:20px;font-weight:500;line-height:1.4;}
+.rc-desc{font-size:13.5px;color:var(--moon-dim);}
+.rc-meta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:2px;}
+.rc-meta span{font-family:var(--mono);font-size:11px;color:var(--moon-dim);display:inline-flex;align-items:center;gap:6px;}
+.rc-links{display:flex;gap:18px;margin-top:auto;padding-top:13px;border-top:1px solid var(--line-soft);}
+.rc-links a{font-family:var(--mono);font-size:12px;color:var(--cyan);letter-spacing:0.03em;display:inline-flex;align-items:center;gap:6px;}
+.rc-links a:hover{color:var(--amber);}
 
 /* ============ Publications ============ */
 .pub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:34px;}
 .pub-card{
-  background:var(--paper-lift);border:1px solid var(--line);border-radius:3px;
+  background:rgba(20,26,54,0.55);border:1px solid var(--line);border-radius:10px;
   padding:22px;display:flex;flex-direction:column;gap:10px;position:relative;
   transition:transform .3s ease,border-color .3s ease;
 }
-.pub-card:hover{transform:translateY(-3px);border-color:var(--terracotta);}
+.pub-card:hover{transform:translateY(-3px);border-color:rgba(77,216,208,0.55);}
 .pub-type{
   font-family:var(--mono);font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--paper-lift);background:var(--teal);border-radius:3px;padding:4px 9px;align-self:flex-start;
+  color:var(--night);background:var(--cyan);border-radius:4px;padding:4px 9px;align-self:flex-start;
 }
-.pub-type.book{background:var(--ochre);}
-.pub-type.paper{background:var(--terracotta);}
-.pub-title{font-family:var(--display);font-size:18.5px;font-weight:600;line-height:1.5;}
-.pub-title a:hover{color:var(--terracotta);}
-.pub-venue{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);}
+.pub-type.book{background:var(--amber);}
+.pub-type.paper{background:var(--indigo-bright);color:var(--moon);}
+.pub-title{font-family:var(--display);font-size:18.5px;font-weight:500;line-height:1.5;}
+.pub-title a:hover{color:var(--cyan);}
+.pub-venue{font-family:var(--mono);font-size:11.5px;color:var(--moon-dim);}
 .pub-actions{display:flex;gap:16px;margin-top:auto;padding-top:12px;border-top:1px solid var(--line-soft);}
-.pub-actions a{font-family:var(--mono);font-size:12px;color:var(--teal);}
-.pub-actions a:hover{color:var(--terracotta);}
+.pub-actions a{font-family:var(--mono);font-size:12px;color:var(--cyan);}
+.pub-actions a:hover{color:var(--amber);}
 
 /* ============ Investing ============ */
 .ledger{margin-top:36px;}
-.ledger-rule{border:1px solid var(--line);border-radius:3px;background:var(--paper-lift);overflow:hidden;}
+.ledger-rule{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:rgba(20,26,54,0.4);}
 .ledger-row{
   display:flex;flex-wrap:wrap;gap:12px 22px;align-items:baseline;padding:18px 22px;
-  border-bottom:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);transition:background .25s ease;
 }
 .ledger-row:last-child{border-bottom:none;}
-.ledger-row:nth-child(even){background:rgba(234,228,212,0.4);}
-.lr-no{font-family:var(--mono);font-size:11px;color:var(--terracotta);letter-spacing:0.1em;flex-basis:52px;}
+.ledger-row:hover{background:rgba(77,216,208,0.06);}
+.lr-no{font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:0.12em;flex-basis:56px;}
 .lr-main{flex:1 1 260px;min-width:0;}
-.lr-title{font-family:var(--display);font-weight:600;font-size:16.5px;}
-.lr-desc{font-size:13.5px;color:var(--ink-soft);}
-.lr-date{font-family:var(--mono);font-size:11px;color:var(--ink-soft);white-space:nowrap;}
-.inv-note{margin-top:26px;font-family:var(--hand);font-size:18px;color:var(--terracotta);transform:rotate(-0.6deg);line-height:1.7;}
-.inv-warn{font-size:12px;color:var(--ink-soft);font-family:var(--mono);letter-spacing:0.03em;margin-top:14px;}
+.lr-title{font-family:var(--display);font-weight:500;font-size:16.5px;}
+.lr-desc{font-size:13.5px;color:var(--moon-dim);}
+.lr-date{font-family:var(--mono);font-size:11px;color:var(--moon-dim);white-space:nowrap;}
+.inv-note{margin-top:26px;font-family:var(--mono);font-size:13px;color:var(--amber);line-height:1.7;}
+.inv-warn{font-size:11.5px;color:var(--moon-dim);font-family:var(--mono);letter-spacing:0.02em;margin-top:14px;}
 
 /* ============ Contact ============ */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:36px;}
 .contact-card{
-  background:var(--paper-lift);border:1px solid var(--line);border-radius:3px;padding:22px;
+  background:rgba(20,26,54,0.55);border:1px solid var(--line);border-radius:10px;padding:20px;
   display:flex;flex-direction:column;gap:12px;transition:border-color .25s ease,transform .25s ease;
 }
-.contact-card:hover{border-color:var(--terracotta);transform:translateY(-3px);}
-.cc-name{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;color:var(--teal);text-transform:uppercase;}
-.cc-handle{font-family:var(--display);font-size:19px;font-weight:600;}
-.cc-desc{font-size:13px;color:var(--ink-soft);}
-.cc-icon{width:34px;height:34px;padding:7px;border:1px solid var(--line);border-radius:50%;color:var(--terracotta);}
+.contact-card:hover{border-color:rgba(77,216,208,0.55);transform:translateY(-3px);}
+.cc-cmd{font-family:var(--mono);font-size:12px;color:var(--cyan);}
+.cc-cmd .p{color:var(--moon-dim);}
+.cc-handle{font-family:var(--display);font-size:18px;font-weight:500;word-break:break-all;}
+.cc-desc{font-size:13px;color:var(--moon-dim);}
+.cc-icon{width:34px;height:34px;padding:8px;border:1px solid var(--line);border-radius:50%;color:var(--cyan);}
 .cc-icon svg{width:100%;height:100%;}
 .cv-box{
-  margin-top:30px;border:1px dashed var(--terracotta);border-radius:3px;
+  margin-top:30px;border:1px dashed rgba(77,216,208,0.55);border-radius:10px;
   padding:26px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
-  background:rgba(201,100,66,0.045);
+  background:rgba(77,216,208,0.05);
 }
-.cv-box .tt{font-family:var(--display);font-size:19px;font-weight:600;}
-.cv-box .ss{font-size:13px;color:var(--ink-soft);}
+.cv-box .tt{font-family:var(--display);font-size:19px;font-weight:500;}
+.cv-box .ss{font-size:13px;color:var(--moon-dim);}
 
-/* ============ 页脚（版权页） ============ */
-footer{
-  margin-top:90px;border-top:1px solid var(--line);background:var(--paper-deep);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-}
+/* ============ 页脚 ============ */
+footer{margin-top:90px;border-top:1px solid var(--line-soft);background:rgba(9,13,28,0.6);}
 .footer-inner{padding:44px 0 36px;}
 .f-colophon{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start;}
 .f-brand{flex:1 1 320px;min-width:0;}
 .f-brand .brand{font-size:19px;}
-.colophon-text{font-size:12.5px;color:var(--ink-soft);line-height:2;margin-top:16px;max-width:400px;}
+.colophon-text{font-size:12.5px;color:var(--moon-dim);line-height:2;margin-top:16px;max-width:420px;}
 .f-links{display:flex;gap:56px;flex-wrap:wrap;}
-.f-col h4{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--teal);text-transform:uppercase;margin-bottom:14px;}
-.f-col a{display:block;font-size:14px;color:var(--ink);padding:4px 0;}
-.f-col a:hover{color:var(--terracotta);}
+.f-col h4{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--cyan);text-transform:uppercase;margin-bottom:14px;}
+.f-col a{display:block;font-size:14px;color:var(--moon);padding:4px 0;}
+.f-col a:hover{color:var(--cyan);}
 .f-bottom{margin-top:34px;padding-top:20px;border-top:1px solid var(--line-soft);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;}
-.f-bottom p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:0.04em;}
+.f-bottom p{font-family:var(--mono);font-size:11px;color:var(--moon-dim);letter-spacing:0.04em;}
 .backtop{
-  font-family:var(--mono);font-size:12px;color:var(--teal);border:1px solid var(--line);border-radius:3px;
+  font-family:var(--mono);font-size:12px;color:var(--cyan);border:1px solid var(--line);border-radius:5px;
   padding:7px 16px;background:transparent;cursor:pointer;transition:all .2s ease;
 }
-.backtop:hover{color:var(--paper-lift);background:var(--ink);border-color:var(--ink);}
+.backtop:hover{color:var(--night);background:var(--cyan);border-color:var(--cyan);}
 
 /* ============ 滚动揭示 ============ */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
@@ -327,12 +329,13 @@ footer{
   html{scroll-behavior:auto;}
   .view.active{animation:none;}
   .reveal{opacity:1;transform:none;transition:none;}
+  .term-cursor{animation:none;}
 }
 
 /* ============ 移动端 ============ */
 @media (max-width:640px){
-  body{font-size:14.5px;}
-  .hero{padding:44px 0 20px;}
+  body{font-size:14.5px;background-attachment:scroll;}
+  .hero{padding:42px 0 20px;}
   .hero-actions .btn{width:100%;justify-content:center;}
   .topbar-inner{gap:10px;}
   .brand-en{display:none;}
@@ -345,6 +348,7 @@ footer{
   nav.main a{padding:12px 14px;font-size:13.5px;}
   .filter{padding:10px 18px;}
   .btn{padding:13px 22px;}
+  .term-body{font-size:12px;}
 }
 </style>
 </head>
@@ -354,15 +358,15 @@ footer{
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a class="brand" href="#/home">
-      <span class="seal">简</span>
-      <span>纸上美术馆<span class="brand-en">The Paper Museum</span></span>
+      <svg class="moon-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="#4dd8d0" stroke-width="1.5" opacity="0.4"/><path d="M16 5a11 11 0 1 0 0 22 11 11 0 0 1 0-22z" fill="#4dd8d0"/></svg>
+      <span>靛蓝档案<span class="brand-en">Indigo Archive</span></span>
     </a>
     <nav class="main" aria-label="主要导航">
       <a href="#/home" data-nav="home"><span class="idx">00</span>首页</a>
       <a href="#/blog" data-nav="blog"><span class="idx">01</span>日志</a>
-      <a href="#/projects" data-nav="projects"><span class="idx">02</span>馆藏项目</a>
+      <a href="#/projects" data-nav="projects"><span class="idx">02</span>项目</a>
       <a href="#/publications" data-nav="publications"><span class="idx">03</span>著述</a>
-      <a href="#/investing" data-nav="investing"><span class="idx">04</span>投资账本</a>
+      <a href="#/investing" data-nav="investing"><span class="idx">04</span>账本</a>
       <a href="#/contact" data-nav="contact"><span class="idx">05</span>通讯</a>
     </nav>
   </div>
@@ -376,55 +380,67 @@ footer{
     <div class="hero">
       <div class="hero-grid">
         <div class="hero-copy">
-          <p class="hero-kicker">ARCHIVE · EST. 2008</p>
-          <h1 class="hero-title">纸上美术馆<span class="en">The Paper Museum</span></h1>
-          <p class="hero-sub">这里只收藏一个人的生活：写作、代码、阅读，与缓慢积累的利息。每件藏品都标注真实的年份与状态，不夸大，不归档错误。</p>
+          <p class="eyebrow">Indigo Archive · 月之暗面</p>
+          <h1 class="hero-title">靛蓝档案<span class="en">Indigo Archive</span></h1>
+          <p class="hero-sub">主页展出亮面：写作、代码与出版物。日记藏在暗面：那些真实的、未经修饰的思考。二者都是同一轮月亮。</p>
           <div class="hero-actions">
-            <a class="btn primary" href="#/blog">翻阅最新日记 <span class="arrow">→</span></a>
-            <a class="btn ghost" href="#/projects">查看馆藏项目</a>
-            <span class="hero-note">今天也值得入藏。</span>
+            <a class="btn primary" href="#/blog">翻阅日志 <span class="arrow">→</span></a>
+            <a class="btn ghost" href="#/projects">查看项目</a>
+          </div>
+          <div class="moon-gauge">
+            <svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15" fill="#1b2347"/><path d="M18 3a15 15 0 0 0 0 30 15 15 0 0 1 0-30z" fill="#4dd8d0" opacity="0.9"/><circle cx="18" cy="18" r="15" fill="none" stroke="rgba(238,241,249,0.25)" stroke-width="1"/></svg>
+            <span>今日月相 · 蛾眉月（示意）— 亮面 / 暗面</span>
           </div>
         </div>
         <div class="hero-fig">
           <figure class="figure">
-            <img src="https://aka.doubaocdn.com/s/KMUi5pVE2E" alt="书房版画：桌上摊开的手稿、打字机与档案盒" loading="lazy">
-            <figcaption class="fig-label"><span class="dot"></span>FIG.01 · 书房 · 2026</figcaption>
+            <img src="https://aka.doubaocdn.com/s/hGhe3DfkVA" alt="深空插画：半亮半暗的月球悬浮在档案网格之上" loading="lazy">
+            <figcaption class="fig-label"><span class="dot"></span>FIG.01 · 月相 · 2026</figcaption>
           </figure>
         </div>
+      </div>
+
+      <!-- 终端 -->
+      <div class="terminal reveal" id="terminal">
+        <div class="term-bar">
+          <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+          <span class="term-title">jian@archive: ~</span>
+        </div>
+        <div class="term-body" id="term-body"><span class="term-cursor"></span></div>
+        <button class="term-replay" type="button" id="term-replay">重播 ▷</button>
       </div>
 
       <div class="showcase">
         <div class="showcase-head">
           <h2>最新入藏</h2>
-          <a href="#/blog">全部藏品 →</a>
+          <a href="#/blog">全部条目 →</a>
         </div>
         <div class="showcase-grid">
-          <article class="label-card reveal">
-            <span class="badge">新</span>
-            <span class="label-no">DIARY · No.082</span>
-            <h3 class="label-title"><a href="#/blog">一个关于留白的早晨</a></h3>
-            <span class="label-meta">2026-10-09 · <span class="tag">日常</span></span>
-            <p class="post-excerpt">今天刻意不排满日程。留给走路、发呆和重读旧信的时间，比任何会议都值钱。</p>
+          <article class="card reveal">
+            <span class="card-no">LOG · No.082</span>
+            <h3 class="card-title"><a href="#/blog">一个关于留白的早晨</a></h3>
+            <span class="card-meta">2026-10-09 · <span class="tag">日常</span></span>
+            <p class="card-excerpt">今天刻意不排满日程。留给走路、发呆和重读旧信的时间，比任何会议都值钱。</p>
           </article>
-          <article class="label-card reveal">
-            <span class="label-no">WORK · No.014</span>
-            <h3 class="label-title"><a href="#/projects">纸上美术馆 · 本馆</a></h3>
-            <span class="label-meta">2026 · <span class="tag teal">进行中</span></span>
-            <p class="post-excerpt">本站即藏品：一个用纯 HTML 手工排版的私人档案馆。</p>
+          <article class="card reveal">
+            <span class="card-no">PROJECT · No.014</span>
+            <h3 class="card-title"><a href="#/projects">靛蓝档案 · 本馆</a></h3>
+            <span class="card-meta">2026 · <span class="dot"></span> 进行中</span>
+            <p class="card-excerpt">本站即藏品：月之暗面风格的私人档案，单文件实现。</p>
           </article>
-          <article class="label-card reveal">
-            <span class="label-no">BOOK · 2025</span>
-            <h3 class="label-title"><a href="#/publications">长期主义的复利模型</a></h3>
-            <span class="label-meta">论文 · <span class="tag">研究</span></span>
-            <p class="post-excerpt">个人知识管理如何像复利一样积累——一篇方法论笔记。</p>
+          <article class="card reveal">
+            <span class="card-no">PAPER · 2025</span>
+            <h3 class="card-title"><a href="#/publications">长期主义的复利模型</a></h3>
+            <span class="card-meta"><span class="tag cyan">论文</span> · 研究</span>
+            <p class="card-excerpt">个人知识管理如何像复利一样积累——一篇方法论笔记。</p>
           </article>
         </div>
       </div>
 
       <div class="about-strip reveal">
-        <p class="about-quote">这间美术馆的展签从不夸大。编者相信：一个人留下的最有价值的资产，是<em>诚实的时间记录</em>。</p>
+        <p class="about-quote">月亮永远有一面是暗的。这间档案馆只在亮面展出作品，暗面存放日记——<em>所有未经修饰的草稿、犹豫与失败，也在被认真记录</em>。</p>
         <div class="now-row">
-          <span class="now-chip"><b>正在</b> 把十年日记归档成书</span>
+          <span class="now-chip"><b>正在</b> 把十年日记归档成册</span>
           <span class="now-chip"><b>正在</b> 重写周报流水线</span>
           <span class="now-chip"><b>在读</b> 一本关于耐心的书</span>
           <span class="now-chip"><b>最近</b> 完成 No.014 本馆上线</span>
@@ -439,14 +455,13 @@ footer{
   <div class="wrap">
     <div class="page-head">
       <div class="page-copy">
-        <p class="eyebrow">BLOG · 卷一 · 日志</p>
+        <p class="eyebrow">BLOG · 日志档案</p>
         <h1 class="section-title">日志</h1>
-        <p class="section-sub">日常记录、周报与年报，按入藏顺序陈列。日记是最小的展签，年报是一年一度的图录。</p>
-        <span class="hand-note" style="margin-top:14px;display:inline-block;">—— 写下来，才算是发生。</span>
+        <p class="section-sub">日记是日志文件，周报是发布说明，年报是年度变更日志。暗面的数据，按时间轴陈列。</p>
       </div>
       <figure class="figure">
-        <img src="https://aka.doubaocdn.com/s/5RENxDulir" alt="日记本版画：摊开的笔记本、钢笔与印章" loading="lazy">
-        <figcaption class="fig-label"><span class="dot"></span>FIG.02 · 日记本 · 2026</figcaption>
+        <img src="https://aka.doubaocdn.com/s/MrYVK3jzPn" alt="深空插画：发光的终端窗口" loading="lazy">
+        <figcaption class="fig-label"><span class="dot"></span>FIG.02 · 终端 · 2026</figcaption>
       </figure>
     </div>
 
@@ -459,61 +474,56 @@ footer{
 
     <div class="timeline" id="blog-timeline">
 
-      <!-- 年报 -->
       <div class="tl-group" data-group="yearly">
-        <h2 class="tl-label">年报 <span class="cnt">ANNUAL · 一年一度的图录</span></h2>
+        <h2 class="tl-label">年报 <span class="cnt">CHANGELOG · 年度变更</span></h2>
         <div class="tl-items">
-          <article class="label-card">
-            <span class="badge">年度</span>
-            <span class="label-no">ANNUAL · 2025</span>
-            <h3 class="label-title">一年里入藏的 47 件小事</h3>
-            <span class="label-meta">2025-12-31 · <span class="tag teal">年报</span></span>
-            <p class="post-excerpt">47 篇日记、52 周周报、3 个项目上线、12 本书读完。年度数据以图录形式公开，全部可复核。</p>
+          <article class="card">
+            <span class="card-no">CHANGELOG · 2025</span>
+            <h3 class="card-title">一年里入藏的 47 件小事</h3>
+            <span class="card-meta">2025-12-31 · <span class="tag cyan">年报</span></span>
+            <p class="card-excerpt">47 篇日记、52 周周报、3 个项目上线、12 本书读完。年度数据以变更日志形式公开，全部可复核。</p>
           </article>
         </div>
       </div>
 
-      <!-- 周报 -->
       <div class="tl-group" data-group="weekly">
-        <h2 class="tl-label">周报 <span class="cnt">WEEKLY · 每周一归档</span></h2>
+        <h2 class="tl-label">周报 <span class="cnt">RELEASE NOTES · 每周一归档</span></h2>
         <div class="tl-items">
-          <article class="label-card">
-            <span class="label-no">WEEK · W40</span>
-            <h3 class="label-title">本周：归档、重读、修剪</h3>
-            <span class="label-meta">2026-09-28 — 10-04 · <span class="tag teal">周报</span></span>
-            <p class="post-excerpt">归档 14 篇草稿；重读年度目标，砍掉两个不再重要的方向；跑步三次。<a class="more" href="#/blog">展开 →</a></p>
+          <article class="card">
+            <span class="card-no">RELEASE · W40</span>
+            <h3 class="card-title">本周：归档、重读、修剪</h3>
+            <span class="card-meta">2026-09-28 — 10-04 · <span class="tag cyan">周报</span></span>
+            <p class="card-excerpt">归档 14 篇草稿；重读年度目标，砍掉两个不再重要的方向；跑步三次。<a class="more" href="#/blog">展开 →</a></p>
           </article>
-          <article class="label-card">
-            <span class="label-no">WEEK · W39</span>
-            <h3 class="label-title">把两件拖了很久的事做完</h3>
-            <span class="label-meta">2026-09-21 — 09-27 · <span class="tag teal">周报</span></span>
-            <p class="post-excerpt">完成个人年报数据页 v2；给开源周报工具补上导出功能。拖延的解药是切开任务。</p>
+          <article class="card">
+            <span class="card-no">RELEASE · W39</span>
+            <h3 class="card-title">把两件拖了很久的事做完</h3>
+            <span class="card-meta">2026-09-21 — 09-27 · <span class="tag cyan">周报</span></span>
+            <p class="card-excerpt">完成个人年报数据页 v2；给开源周报工具补上导出功能。拖延的解药是切开任务。</p>
           </article>
         </div>
       </div>
 
-      <!-- 日记 -->
       <div class="tl-group" data-group="diary">
-        <h2 class="tl-label">日记 <span class="cnt">DIARY · 最小的展签</span></h2>
+        <h2 class="tl-label">日记 <span class="cnt">LOG FILES · 暗面的数据</span></h2>
         <div class="tl-items">
-          <article class="label-card">
-            <span class="badge">新</span>
-            <span class="label-no">DIARY · No.082</span>
-            <h3 class="label-title">一个关于留白的早晨</h3>
-            <span class="label-meta">2026-10-09 · <span class="tag">日常</span></span>
-            <p class="post-excerpt">今天刻意不排满日程。留给走路、发呆和重读旧信的时间，比任何会议都值钱。</p>
+          <article class="card">
+            <span class="card-no">LOG · No.082</span>
+            <h3 class="card-title">一个关于留白的早晨</h3>
+            <span class="card-meta">2026-10-09 · <span class="tag">日常</span></span>
+            <p class="card-excerpt">今天刻意不排满日程。留给走路、发呆和重读旧信的时间，比任何会议都值钱。</p>
           </article>
-          <article class="label-card">
-            <span class="label-no">DIARY · No.081</span>
-            <h3 class="label-title">把书桌重新摆了一遍</h3>
-            <span class="label-meta">2026-10-06 · <span class="tag">日常</span></span>
-            <p class="post-excerpt">文具归位、纸堆分类、清理三支不出水的笔。整理书桌是整理思路的物理版本。</p>
+          <article class="card">
+            <span class="card-no">LOG · No.081</span>
+            <h3 class="card-title">把书桌重新摆了一遍</h3>
+            <span class="card-meta">2026-10-06 · <span class="tag">日常</span></span>
+            <p class="card-excerpt">文具归位、纸堆分类、清理三支不出水的笔。整理书桌是整理思路的物理版本。</p>
           </article>
-          <article class="label-card">
-            <span class="label-no">DIARY · No.080</span>
-            <h3 class="label-title">九月最后一天读到的句子</h3>
-            <span class="label-meta">2026-09-30 · <span class="tag">读书</span></span>
-            <p class="post-excerpt">记下一句：「耐心是稀缺的复利。」—— 来源见读书笔记 No.017。</p>
+          <article class="card">
+            <span class="card-no">LOG · No.080</span>
+            <h3 class="card-title">九月最后一天读到的句子</h3>
+            <span class="card-meta">2026-09-30 · <span class="tag">读书</span></span>
+            <p class="card-excerpt">记下一句：「耐心是稀缺的复利。」—— 来源见读书笔记 No.017。</p>
           </article>
         </div>
       </div>
@@ -522,53 +532,49 @@ footer{
   </div>
 </section>
 
-<!-- ============ 视图：馆藏项目 ============ -->
+<!-- ============ 视图：项目 ============ -->
 <section class="view" id="view-projects">
   <div class="wrap">
     <div class="page-head">
       <div class="page-copy">
-        <p class="eyebrow">PROJECTS · 卷二 · 藏品</p>
-        <h1 class="section-title">馆藏项目</h1>
-        <p class="section-sub">每件作品都有一张展签：编号、年份、状态与工艺。已归档的也保留在墙上，时间从不删除。</p>
+        <p class="eyebrow">PROJECTS · 代码仓</p>
+        <h1 class="section-title">项目</h1>
+        <p class="section-sub">以仓库卡片陈列：名称、语言、状态与入口。已归档的也保留在墙上，时间从不删除。</p>
       </div>
       <figure class="figure">
-        <img src="https://aka.doubaocdn.com/s/PiXq3n9gXM" alt="工作台版画：圆规、直尺、图纸与工具" loading="lazy">
-        <figcaption class="fig-label"><span class="dot"></span>FIG.03 · 工作台 · 2026</figcaption>
+        <img src="https://aka.doubaocdn.com/s/uIphBLBjcf" alt="深空插画：发光的圆规与蓝图网格" loading="lazy">
+        <figcaption class="fig-label"><span class="dot"></span>FIG.03 · 蓝图 · 2026</figcaption>
       </figure>
     </div>
 
     <div class="project-grid">
-      <article class="project-card reveal">
-        <span class="status-stamp live">进行中</span>
-        <div class="pc-head"><span class="pc-no">No.014</span><span class="pc-year">2026</span></div>
-        <h3 class="pc-title">纸上美术馆 · 本馆</h3>
-        <p class="pc-desc">本站即藏品：单文件实现的私人档案馆，衬线排版、展签系统、印章动效。</p>
-        <div class="pc-meta"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
-        <div class="pc-links"><a href="#/home">本馆参观 →</a></div>
+      <article class="repo-card reveal">
+        <div class="rc-head"><span class="rc-name">indigo-archive</span><span class="rc-year">2026</span></div>
+        <h3 class="rc-title">靛蓝档案 · 本馆</h3>
+        <p class="rc-desc">本站即藏品：月之暗面风格的私人档案，单文件实现，终端与月相为签名元素。</p>
+        <div class="rc-meta"><span><span class="dot"></span> 进行中</span><span>HTML · CSS · JS</span></div>
+        <div class="rc-links"><a href="#/home">本馆参观 →</a></div>
       </article>
-      <article class="project-card reveal">
-        <span class="status-stamp">已归档</span>
-        <div class="pc-head"><span class="pc-no">No.013</span><span class="pc-year">2025</span></div>
-        <h3 class="pc-title">周报生成器</h3>
-        <p class="pc-desc">每周一从提交记录与待办清单生成周报草稿，节省半小时机械劳动。</p>
-        <div class="pc-meta"><span class="tag">Python</span><span class="tag">CLI</span></div>
-        <div class="pc-links"><a href="#/projects">源码 →</a></div>
+      <article class="repo-card reveal">
+        <div class="rc-head"><span class="rc-name">weekly-release</span><span class="rc-year">2025</span></div>
+        <h3 class="rc-title">周报生成器</h3>
+        <p class="rc-desc">每周一从提交记录与待办清单生成周报草稿，节省半小时机械劳动。</p>
+        <div class="rc-meta"><span><span class="dot dim"></span> 已归档</span><span>Python · CLI</span></div>
+        <div class="rc-links"><a href="#/projects">源码 →</a></div>
       </article>
-      <article class="project-card reveal">
-        <span class="status-stamp">维护中</span>
-        <div class="pc-head"><span class="pc-no">No.012</span><span class="pc-year">2025</span></div>
-        <h3 class="pc-title">摘抄服务</h3>
-        <p class="pc-desc">把读书摘抄与划线同步进一个可全文检索的私人库，随读随存。</p>
-        <div class="pc-meta"><span class="tag">Go</span><span class="tag">SQLite</span></div>
-        <div class="pc-links"><a href="#/projects">源码 →</a></div>
+      <article class="repo-card reveal">
+        <div class="rc-head"><span class="rc-name">clipping-service</span><span class="rc-year">2025</span></div>
+        <h3 class="rc-title">摘抄服务</h3>
+        <p class="rc-desc">把读书摘抄与划线同步进一个可全文检索的私人库，随读随存。</p>
+        <div class="rc-meta"><span><span class="dot"></span> 维护中</span><span>Go · SQLite</span></div>
+        <div class="rc-links"><a href="#/projects">源码 →</a></div>
       </article>
-      <article class="project-card reveal">
-        <span class="status-stamp">已归档</span>
-        <div class="pc-head"><span class="pc-no">No.011</span><span class="pc-year">2024</span></div>
-        <h3 class="pc-title">个人年报页</h3>
-        <p class="pc-desc">把一年的数据画成一张可浏览的图录：字数、公里数、读完的书。</p>
-        <div class="pc-meta"><span class="tag">HTML</span><span class="tag">SVG</span></div>
-        <div class="pc-links"><a href="#/projects">参观 →</a></div>
+      <article class="repo-card reveal">
+        <div class="rc-head"><span class="rc-name">annual-report-page</span><span class="rc-year">2024</span></div>
+        <h3 class="rc-title">个人年报页</h3>
+        <p class="rc-desc">把一年的数据画成一张可浏览的图录：字数、公里数、读完的书。</p>
+        <div class="rc-meta"><span><span class="dot dim"></span> 已归档</span><span>HTML · SVG</span></div>
+        <div class="rc-links"><a href="#/projects">参观 →</a></div>
       </article>
     </div>
   </div>
@@ -579,12 +585,12 @@ footer{
   <div class="wrap">
     <div class="page-head">
       <div class="page-copy">
-        <p class="eyebrow">PUBLICATIONS · 卷三 · 著述</p>
+        <p class="eyebrow">PUBLICATIONS · 亮面的文字</p>
         <h1 class="section-title">著述</h1>
         <p class="section-sub">文章、论文与出版的图书，按类型陈列。学术条目附 DOI 与可追溯来源。</p>
       </div>
       <figure class="figure">
-        <img src="https://aka.doubaocdn.com/s/dNprmAFboP" alt="书堆版画：旧书、书脊与卷起的羊皮纸" loading="lazy">
+        <img src="https://aka.doubaocdn.com/s/7HwTkzlxYI" alt="深空插画：发光的书本与文档轮廓" loading="lazy">
         <figcaption class="fig-label"><span class="dot"></span>FIG.04 · 藏书 · 2026</figcaption>
       </figure>
     </div>
@@ -618,45 +624,45 @@ footer{
   </div>
 </section>
 
-<!-- ============ 视图：投资账本 ============ -->
+<!-- ============ 视图：账本 ============ -->
 <section class="view" id="view-investing">
   <div class="wrap">
     <div class="page-head">
       <div class="page-copy">
-        <p class="eyebrow">INVESTING · 附录 · 账本</p>
+        <p class="eyebrow">INVESTING · 数据面板</p>
         <h1 class="section-title">投资账本</h1>
         <p class="section-sub">不预测市场，只管理自己的时间与现金流。原则公开，便于监督自己。</p>
       </div>
       <figure class="figure">
-        <img src="https://aka.doubaocdn.com/s/147sdDVvMU" alt="账本版画：打开的账本、铅笔与天平" loading="lazy">
-        <figcaption class="fig-label"><span class="dot"></span>FIG.05 · 账本 · 2026</figcaption>
+        <img src="https://aka.doubaocdn.com/s/PjilKYdV8X" alt="深空插画：克制的上升折线与数据网格" loading="lazy">
+        <figcaption class="fig-label"><span class="dot"></span>FIG.05 · 数据 · 2026</figcaption>
       </figure>
     </div>
 
     <div class="ledger reveal">
       <div class="ledger-rule">
         <div class="ledger-row">
-          <span class="lr-no">原则 壹</span>
+          <span class="lr-no">01</span>
           <div class="lr-main"><div class="lr-title">留足现金</div><div class="lr-desc">永远保留 12 个月生活开支，任何行情下不动用。</div></div>
           <span class="lr-date">2024 起执行</span>
         </div>
         <div class="ledger-row">
-          <span class="lr-no">原则 贰</span>
+          <span class="lr-no">02</span>
           <div class="lr-main"><div class="lr-title">只买看得懂</div><div class="lr-desc">看不懂的商业模式一律不碰，机会永远比本金多。</div></div>
           <span class="lr-date">长期有效</span>
         </div>
         <div class="ledger-row">
-          <span class="lr-no">原则 叁</span>
+          <span class="lr-no">03</span>
           <div class="lr-main"><div class="lr-title">按月复盘</div><div class="lr-desc">每月一号更新持仓与学习笔记，不做日内判断。</div></div>
           <span class="lr-date">2025-01 起</span>
         </div>
         <div class="ledger-row">
-          <span class="lr-no">笔记 09</span>
+          <span class="lr-no">N-09</span>
           <div class="lr-main"><div class="lr-title">本月的教训</div><div class="lr-desc">别在情绪高点加仓，别在低点恐慌——这两条写下来比做到容易。</div></div>
           <span class="lr-date">2026-09-30</span>
         </div>
         <div class="ledger-row">
-          <span class="lr-no">笔记 08</span>
+          <span class="lr-no">N-08</span>
           <div class="lr-main"><div class="lr-title">关于随机性的提醒</div><div class="lr-desc">重读经典后的备忘：短期涨跌大多是噪声，长期才是信号。</div></div>
           <span class="lr-date">2026-08-31</span>
         </div>
@@ -672,12 +678,12 @@ footer{
   <div class="wrap">
     <div class="page-head">
       <div class="page-copy">
-        <p class="eyebrow">CONTACT · 卷末 · 通讯</p>
+        <p class="eyebrow">CONTACT · 加密信道</p>
         <h1 class="section-title">通讯</h1>
         <p class="section-sub">想写信、合作或只是打个招呼，都可以。回复速度视季节而定，但一定回。</p>
       </div>
       <figure class="figure">
-        <img src="https://aka.doubaocdn.com/s/6rhdh3lgK8" alt="信封版画：信封、火漆印、邮票与丝带" loading="lazy">
+        <img src="https://aka.doubaocdn.com/s/8U7ZaKzuWg" alt="深空插画：发光的信封与光带" loading="lazy">
         <figcaption class="fig-label"><span class="dot"></span>FIG.06 · 信笺 · 2026</figcaption>
       </figure>
     </div>
@@ -685,25 +691,25 @@ footer{
     <div class="contact-grid">
       <a class="contact-card" href="https://github.com/">
         <span class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></span>
-        <span class="cc-name">Github</span>
+        <span class="cc-cmd"><span class="p">$</span> contact --github</span>
         <span class="cc-handle">github.com/yourname</span>
         <span class="cc-desc">代码与项目源码。</span>
       </a>
       <a class="contact-card" href="https://x.com/">
         <span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.6 2h6.4l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg></span>
-        <span class="cc-name">X</span>
+        <span class="cc-cmd"><span class="p">$</span> contact --x</span>
         <span class="cc-handle">x.com/yourname</span>
         <span class="cc-desc">碎碎念与即时想法。</span>
       </a>
       <a class="contact-card" href="https://www.zhihu.com/">
         <span class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7.5 12h9"/></svg></span>
-        <span class="cc-name">知乎</span>
+        <span class="cc-cmd"><span class="p">$</span> contact --zhihu</span>
         <span class="cc-handle">zhihu.com/people/yourname</span>
         <span class="cc-desc">长回答与专栏文章。</span>
       </a>
       <a class="contact-card" href="mailto:hello@example.com">
         <span class="cc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
-        <span class="cc-name">邮件</span>
+        <span class="cc-cmd"><span class="p">$</span> contact --email</span>
         <span class="cc-handle">hello@example.com</span>
         <span class="cc-desc">最正式也最可靠的联络方式。</span>
       </a>
@@ -729,19 +735,22 @@ footer{
 
 </main>
 
-<!-- ============ 页脚：版权页 ============ -->
+<!-- ============ 页脚 ============ -->
 <footer>
   <div class="wrap footer-inner">
     <div class="f-colophon">
       <div class="f-brand">
-        <a class="brand" href="#/home"><span class="seal">简</span><span>纸上美术馆<span class="brand-en">The Paper Museum</span></span></a>
-        <p class="colophon-text">本站以纯 HTML / CSS / JS 手工排版：衬线字体印刷、陶土橙为唯一强调色、纸张噪点做底。无追踪、无广告、无多余字节。</p>
+        <a class="brand" href="#/home">
+          <svg class="moon-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="#4dd8d0" stroke-width="1.5" opacity="0.4"/><path d="M16 5a11 11 0 1 0 0 22 11 11 0 0 1 0-22z" fill="#4dd8d0"/></svg>
+          <span>靛蓝档案<span class="brand-en">Indigo Archive</span></span>
+        </a>
+        <p class="colophon-text">本站以靛蓝夜空与星点网格为底，荧光青为唯一强调色。主页展出亮面，日记藏在暗面。无追踪、无广告、无多余字节。</p>
       </div>
       <div class="f-links">
         <div class="f-col">
           <h4>馆藏</h4>
           <a href="#/blog">日志</a>
-          <a href="#/projects">馆藏项目</a>
+          <a href="#/projects">项目</a>
           <a href="#/publications">著述</a>
           <a href="#/investing">投资账本</a>
         </div>
@@ -759,7 +768,7 @@ footer{
       </div>
     </div>
     <div class="f-bottom">
-      <p>© 2026 简 · 保留所有权利 · 修订于 2026-10-11 · 手工排版，不追热点</p>
+      <p>© 2026 简 · 保留所有权利 · 修订于 2026-10-12 · 亮面与暗面，同一轮月亮</p>
       <button class="backtop" type="button" id="backtop">回到顶部 ↑</button>
     </div>
   </div>
@@ -772,12 +781,12 @@ footer{
   /* ===== hash 路由 ===== */
   var routes = ['home','blog','projects','publications','investing','contact'];
   var titles = {
-    home:'纸上美术馆 · The Paper Museum — 简的私人档案馆',
-    blog:'日志 · 纸上美术馆',
-    projects:'馆藏项目 · 纸上美术馆',
-    publications:'著述 · 纸上美术馆',
-    investing:'投资账本 · 纸上美术馆',
-    contact:'通讯 · 纸上美术馆'
+    home:'靛蓝档案 · Indigo Archive — 简的私人档案馆',
+    blog:'日志 · 靛蓝档案',
+    projects:'项目 · 靛蓝档案',
+    publications:'著述 · 靛蓝档案',
+    investing:'投资账本 · 靛蓝档案',
+    contact:'通讯 · 靛蓝档案'
   };
 
   function showView(id){
@@ -801,6 +810,61 @@ footer{
 
   window.addEventListener('hashchange', function(){ showView(currentRoute()); });
   showView(currentRoute());
+
+  /* ===== 终端打字机 ===== */
+  var termScript = [
+    {cmd:'whoami', out:'jian · 简'},
+    {cmd:'ls archive/', out:'diary/  weekly/  yearly/  projects/  books/'},
+    {cmd:'cat diary/latest', out:'「今天也值得入藏。」', hl:true}
+  ];
+  var termBody = document.getElementById('term-body');
+  var termReplay = document.getElementById('term-replay');
+  var termTimer = null;
+
+  function typeLine(el, text, speed, done){
+    var i = 0;
+    el.textContent = '';
+    termTimer = setInterval(function(){
+      el.textContent += text.charAt(i);
+      i++;
+      if (i >= text.length){ clearInterval(termTimer); termTimer = null; if (done) done(); }
+    }, speed);
+  }
+
+  function runTerminal(){
+    if (termTimer){ clearInterval(termTimer); termTimer = null; }
+    termBody.innerHTML = '';
+    var cursor = document.createElement('span');
+    cursor.className = 'term-cursor';
+    termBody.appendChild(cursor);
+    var step = 0;
+
+    function next(){
+      if (step >= termScript.length) return;
+      var s = termScript[step];
+      var line = document.createElement('div');
+      var prompt = document.createElement('span');
+      prompt.className = 'prompt';
+      prompt.textContent = '$ ';
+      var cmd = document.createElement('span');
+      cmd.className = 'cmd';
+      line.appendChild(prompt);
+      line.appendChild(cmd);
+      termBody.insertBefore(line, cursor);
+      typeLine(cmd, s.cmd, 45, function(){
+        var out = document.createElement('div');
+        out.className = 'out' + (s.hl ? ' hl' : '');
+        out.textContent = s.out;
+        termBody.insertBefore(out, cursor);
+        step++;
+        setTimeout(next, 420);
+      });
+    }
+    next();
+  }
+
+  runTerminal();
+  if (termReplay){ termReplay.addEventListener('click', runTerminal); }
 
   /* ===== 日志筛选 ===== */
   var filterBtns = document.querySelectorAll('#blog-filters .filter');
