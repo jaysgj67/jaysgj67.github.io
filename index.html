@@ -7,6 +7,7 @@
 <meta name="description" content="主页展出亮面：写作、代码与出版物。日记藏在暗面：那些真实的、未经修饰的思考。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%23141a36'/%3E%3Cpath d='M32 12a20 20 0 1 0 0 40 20 20 0 0 1 0-40z' fill='%234dd8d0'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js" integrity="sha384-pPi0zxBAoDu6+JXW/C68UZLvBUUtU+7zonhif43rqj7pxsGyqyqzcian2Rj37Rss" crossorigin="anonymous"></script>
 <style>
 /* ============ 设计令牌：靛蓝档案 ============ */
 :root{
@@ -332,6 +333,30 @@ footer{margin-top:90px;border-top:1px solid var(--line-soft);background:rgba(9,1
   .term-cursor{animation:none;}
 }
 
+/* ============ 笔记页 ============ */
+.note-body{margin-top:40px;max-width:840px;}
+.note-body h2{font-family:var(--display);font-weight:500;font-size:21px;margin:46px 0 14px;display:flex;align-items:center;gap:12px;color:var(--moon);}
+.note-body h2::before{content:"";width:22px;height:1px;background:var(--cyan);flex:none;}
+.note-body h2 .h2-en{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;color:var(--moon-dim);text-transform:uppercase;margin-left:2px;}
+.note-body p{color:var(--moon-dim);font-size:14.5px;line-height:2;margin-bottom:14px;}
+.note-body p strong{color:var(--moon);}
+.note-body p em{color:var(--cyan);font-style:normal;}
+.note-body ol,.note-body ul{margin:0 0 16px;padding-left:22px;color:var(--moon-dim);font-size:14px;line-height:2;}
+.note-body li{margin-bottom:10px;}
+.note-body li strong{color:var(--moon);}
+.note-verdict{border:1px solid rgba(77,216,208,0.4);border-radius:10px;background:rgba(77,216,208,0.06);padding:22px 26px;margin-bottom:12px;}
+.note-verdict .v-t{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;}
+.note-verdict p{color:var(--moon);font-size:15px;line-height:1.9;margin:0;}
+.chart-box{width:100%;height:300px;margin:10px 0 4px;background:rgba(20,26,54,0.35);border:1px solid var(--line-soft);border-radius:10px;padding:8px;box-sizing:border-box;}
+.chart-cap{font-family:var(--mono);font-size:11px;color:var(--moon-dim);margin:6px 0 0;letter-spacing:0.04em;}
+.note-src{font-family:var(--mono);font-size:11px;color:var(--moon-dim);line-height:2.1;word-break:break-all;margin-bottom:10px;}
+.note-src li{margin-bottom:6px;}
+.note-table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:13.5px;}
+.note-table th,.note-table td{border:1px solid var(--line);padding:10px 14px;text-align:left;vertical-align:top;}
+.note-table th{background:rgba(43,58,143,0.3);color:var(--moon);font-weight:500;font-family:var(--mono);font-size:12px;letter-spacing:0.04em;}
+.note-table td{color:var(--moon-dim);line-height:1.8;}
+.note-body .more, .lr-desc .more{font-family:var(--mono);font-size:11px;color:var(--cyan);margin-left:8px;white-space:nowrap;}
+.note-body .more:hover, .lr-desc .more:hover{text-decoration:underline;}
 /* ============ 移动端 ============ */
 @media (max-width:640px){
   body{font-size:14.5px;background-attachment:scroll;}
@@ -433,6 +458,12 @@ footer{margin-top:90px;border-top:1px solid var(--line-soft);background:rgba(9,1
             <h3 class="card-title"><a href="#/publications">长期主义的复利模型</a></h3>
             <span class="card-meta"><span class="tag cyan">论文</span> · 研究</span>
             <p class="card-excerpt">个人知识管理如何像复利一样积累——一篇方法论笔记。</p>
+          </article>
+          <article class="card reveal">
+            <span class="card-no">NOTE · 2026-10-12</span>
+            <h3 class="card-title"><a href="#/note">纳指100 泡沫有多大？适不适合长期投资？</a></h3>
+            <span class="card-meta"><span class="dot"></span> 最新入藏</span>
+            <p class="card-excerpt">不是典型泡沫（盈利驱动），但绝对估值不便宜；长期适合，方式应是定投与分批，而非一把梭。</p>
           </article>
         </div>
       </div>
@@ -666,6 +697,11 @@ footer{margin-top:90px;border-top:1px solid var(--line-soft);background:rgba(9,1
           <div class="lr-main"><div class="lr-title">关于随机性的提醒</div><div class="lr-desc">重读经典后的备忘：短期涨跌大多是噪声，长期才是信号。</div></div>
           <span class="lr-date">2026-08-31</span>
         </div>
+        <div class="ledger-row">
+          <span class="lr-no">N-10</span>
+          <div class="lr-main"><div class="lr-title">纳指100 泡沫有多大？</div><div class="lr-desc">完整估值笔记：盈利驱动、前瞻估值接近十年均值，长期适合定投而非一把梭。<a class="more" href="#/note">阅读笔记 →</a></div></div>
+          <span class="lr-date">2026-10-12</span>
+        </div>
       </div>
       <p class="inv-note">账本只记录纪律，不预测涨跌。</p>
       <p class="inv-warn">声明：以上为个人投资笔记，非投资建议。示例内容请在部署前替换为你的真实记录。</p>
@@ -733,6 +769,80 @@ footer{margin-top:90px;border-top:1px solid var(--line-soft);background:rgba(9,1
   </div>
 </section>
 
+<!-- ============ 视图：投资笔记 ============ -->
+<section class="view" id="view-note">
+  <div class="wrap">
+    <div class="page-head">
+      <div class="page-copy">
+        <p class="eyebrow">NOTE · 2026-10-12 · 投资笔记</p>
+        <h1 class="section-title">纳指100 泡沫有多大？<br>适不适合长期投资？</h1>
+        <p class="section-sub">结论先行：不是典型泡沫（盈利驱动），但绝对估值不便宜；长期适合，方式应是定投与分批，而非一把梭。</p>
+      </div>
+    </div>
+
+    <div class="note-body">
+      <div class="note-verdict reveal">
+        <div class="v-t">VERDICT · 一句话结论</div>
+        <p>贵，但不疯。<em>盈利在实打实增长，撑住了估值</em>——所以长期可以投；正因为它不便宜，上车方式应该是<strong>定投摊薄、控制仓位、拉长持有、降低预期</strong>，而不是赌它继续新高。</p>
+      </div>
+
+      <h2>一、行情：一个月 +7.9%，情绪在升温 <span class="h2-en">Price</span></h2>
+      <p>纳斯达克100 在 09-11 至 10-06 间从 28,938 点涨至 31,225 点（<strong>+7.9%</strong>），10-09 收盘回落至 30,883。同期美、日、韩股市齐创历史新高，市场处于典型乐观区间——这正是"泡沫"讨论的由来。</p>
+      <div id="chart-ndx" class="chart-box"></div>
+      <p class="chart-cap">DATA · 日收盘点位，单位：点 · 2026-09-11 至 10-09 · 同花顺（豆包官方合作数据库）</p>
+
+      <h2>二、估值：贵，但不疯 <span class="h2-en">Valuation</span></h2>
+      <p>滚动（TTM）市盈率处于 <strong>28.75–35 倍</strong>：2Q2026 一度触及 35 倍（2021 年以来最高），随后盈利追赶使倍数回落，多数口径在 29–31 倍。前瞻市盈率 <strong>24–32.6 倍</strong>，共识口径已回到 10 年均值（&lt;25 倍）附近。</p>
+      <p>分歧的根源在分位基准：<em>近 1 年分位仅约 11%</em>（因为刚从 6 月 37 倍的高位回落），但<em>2011 年以来分位约 65%</em>（绝对水平仍高）。两种说法都对，只是时间窗口不同。</p>
+      <div id="chart-valuation" class="chart-box"></div>
+      <p class="chart-cap">DATA · 2026 年各机构公开披露口径，TTM=滚动市盈率，前瞻=预期市盈率；虚线为前瞻 10 年均值参考（≈25 倍）</p>
+
+      <h2>三、为什么说不是典型泡沫 <span class="h2-en">Evidence</span></h2>
+      <ol>
+        <li><strong>涨幅由盈利买单，不是估值买单</strong>：截至 2026-07 的过去 12 个月，纳指100 盈利增长 <strong>+48.5%</strong>，估值扩张为 <strong>-17.8%</strong>——盈利涨得比股价快，倍数反而收缩。</li>
+        <li><strong>盈利广度是 4 年半最强</strong>：Q2 超半数成分股盈利增长 20% 以上、八成以上正增长，不再是"七巨头独撑"的单极行情。</li>
+        <li><strong>盈利在上修而非下修</strong>：AI 资本开支正在转化为收入，英伟达前瞻 PE 约 23 倍，较自身 5–10 年均值折价 40% 以上。</li>
+      </ol>
+
+      <h2>四、风险在哪里 <span class="h2-en">Risks</span></h2>
+      <ul>
+        <li><strong>CAPE 极高</strong>：标普 500 席勒市盈率 2026 年 5 月达 42.66，远超 155 年均值 17.4——历史经验是，这类水平之后的长期年化回报会被显著压低。</li>
+        <li><strong>结构性分化</strong>：指数整体合理，但个别 AI 股（如 Palantir 前瞻 PE 约 66 倍）已有局部泡沫特征。</li>
+        <li><strong>三条兑现链</strong>：AI 资本开支能否持续转化为利润、利率环境、指数集中度——任一环节证伪都可能引发估值回归。</li>
+      </ul>
+
+      <h2>五、长期投资结论 <span class="h2-en">Takeaway</span></h2>
+      <table class="note-table">
+        <tr><th style="width:34%;">问题</th><th>回答</th></tr>
+        <tr><td>泡沫大不大？</td><td>不是典型泡沫（盈利驱动），但绝对估值不便宜；短周期分位低、长周期分位中高。</td></tr>
+        <tr><td>适合长期投资吗？</td><td>适合，但要有纪律：以定投/分批方式，把时间当朋友。</td></tr>
+        <tr><td>怎么买？</td><td>定期定额（周/月）摊平成本，不要在创新高后一次性重仓。</td></tr>
+        <tr><td>预期管理</td><td>当前估值入场，未来 5–10 年年化回报大概率低于纳指历史长期均值（CAPE 高位逻辑）。</td></tr>
+        <tr><td>仓位</td><td>单一指数/科技暴露控制在合理比例内，尤其当它是你唯一的权益资产时。</td></tr>
+      </table>
+
+      <h2>数据来源 <span class="h2-en">Sources</span></h2>
+      <ul class="note-src">
+        <li>东方财富 · 纳指100 市盈率与分位（10-08）https://finance.eastmoney.com/a/202610083889390197.html</li>
+        <li>新浪财经 · 纳斯达克指数 PE 32.83、近 10 年 23.56% 分位（10-10）https://cj.sina.com.cn/articles/view/7879996580/1d5af34a402001w75k</li>
+        <li>新浪财经 · 纳指100 TTM 30.31、2011 年以来 64.93% 分位（8-31）https://finance.sina.com.cn/stock/stockzmt/2026-09-04/doc-iniqriie1531130.shtml.md</li>
+        <li>Nasdaq · 2Q2026 基本面更新：TTM PE 35 倍、前瞻 &lt;25 倍 https://www.nasdaq.com/articles/qqq-still-worth-buying-after-markets-recent-surge</li>
+        <li>Nasdaq · ETF 投资指南：前瞻 PE 32.61（7-31）https://www.nasdaq.com/articles/guide-nasdaq-etf-investing-0</li>
+        <li>第一财经 · 纳指100 远期 PE 约 26.7、英伟达远期 23.8（9-14）https://www.yicai.com/news/103257374.html</li>
+        <li>新浪财经 · Altimeter：前瞻 PE 24、盈利增长 26%（9-17）https://finance.sina.com.cn/roll/2026-09-17/doc-iniscksf0405156.shtml</li>
+        <li>Nasdaq · 盈利 +48.5% vs 估值 -17.8%（截至 2026-07 12 个月）https://www.nasdaq.com/articles/global-indexes/biweekly-investment-insights/earnings-driving-equity-returns</li>
+        <li>Nasdaq · Q2 盈利广度：过半成分股 +20% https://www.nasdaq.com/the-print/second-quarter-earnings-show-breadth</li>
+        <li>Nasdaq · 英伟达前瞻 PE 约 23 倍 https://www.nasdaq.com/articles/global-indexes/powering-the-nasdaq-100-ai-thematic-engine</li>
+        <li>Nasdaq · 标普 CAPE 42.66、155 年均值 17.4 https://www.nasdaq.com/articles/will-there-be-stock-market-crash-under-president-donald-trump-new-downside-catalyst-just</li>
+        <li>Nasdaq · Palantir 前瞻 PE 约 66 倍 https://www.nasdaq.com/articles/global-indexes/inside-the-index/pltr</li>
+        <li>行情点位（日线 21 个收盘数据）· 同花顺，经豆包官方合作数据库获取</li>
+      </ul>
+
+      <p class="inv-warn">声明：以上为个人投资笔记，基于公开数据整理，不构成投资建议。请结合自身风险承受能力独立决策。</p>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- ============ 页脚 ============ -->
@@ -779,14 +889,15 @@ footer{margin-top:90px;border-top:1px solid var(--line-soft);background:rgba(9,1
   'use strict';
 
   /* ===== hash 路由 ===== */
-  var routes = ['home','blog','projects','publications','investing','contact'];
+  var routes = ['home','blog','projects','publications','investing','contact','note'];
   var titles = {
     home:'靛蓝档案 · Indigo Archive — 简的私人档案馆',
     blog:'日志 · 靛蓝档案',
     projects:'项目 · 靛蓝档案',
     publications:'著述 · 靛蓝档案',
     investing:'投资账本 · 靛蓝档案',
-    contact:'通讯 · 靛蓝档案'
+    contact:'通讯 · 靛蓝档案',
+    note:'投资笔记 · 纳指100 估值 · 靛蓝档案'
   };
 
   function showView(id){
@@ -801,6 +912,7 @@ footer{margin-top:90px;border-top:1px solid var(--line-soft);background:rgba(9,1
     }
     document.title = titles[id] || titles.home;
     window.scrollTo(0, 0);
+    if (id === 'note'){ initNoteCharts(); }
   }
 
   function currentRoute(){
@@ -904,6 +1016,154 @@ footer{margin-top:90px;border-top:1px solid var(--line-soft);background:rgba(9,1
   var backtop = document.getElementById('backtop');
   if (backtop){
     backtop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  }
+
+  /* ===== 投资笔记图表（ECharts）===== */
+  var noteCharts = [];
+  var noteChartsInited = false;
+
+  function initNoteCharts(){
+    if (noteChartsInited){
+      for (var r = 0; r < noteCharts.length; r++){
+        try { noteCharts[r].resize(); } catch (e) {}
+      }
+      return;
+    }
+    var boxes = document.querySelectorAll('.chart-box');
+    if (typeof echarts === 'undefined'){
+      for (var b = 0; b < boxes.length; b++){
+        boxes[b].innerHTML = '<div style="padding:16px;color:#9aa3c7;font-size:13px;">图表库加载失败，已回退为文字说明。</div>';
+      }
+      return;
+    }
+    noteChartsInited = true;
+
+    var el1 = document.getElementById('chart-ndx');
+    if (el1){
+      var m1 = echarts.init(el1);
+      m1.setOption({
+        backgroundColor: 'transparent',
+        title: {
+          text: '纳斯达克100 近一个月走势（2026-09-11 至 10-09）',
+          left: 'center',
+          textStyle: { color: '#eef1f9', fontSize: 14, fontWeight: 600 }
+        },
+        tooltip: {
+          trigger: 'axis',
+          triggerOn: 'click',
+          renderMode: 'richText',
+          confine: true,
+          backgroundColor: 'rgba(13,18,38,0.95)',
+          borderColor: 'rgba(77,216,208,0.3)',
+          textStyle: { color: '#eef1f9', fontSize: 10, lineHeight: 14 },
+          padding: [6, 8]
+        },
+        grid: { left: 52, right: 18, top: 78, bottom: 30, containLabel: true },
+        xAxis: {
+          type: 'category',
+          data: ['09-11','09-14','09-15','09-16','09-17','09-18','09-21','09-22','09-23','09-24','09-25','09-28','09-29','09-30','10-01','10-02','10-05','10-06','10-07','10-08','10-09'],
+          axisLabel: { color: '#9aa3c7', fontSize: 10, hideOverlap: true, interval: 2 }
+        },
+        yAxis: {
+          type: 'value',
+          name: '点位',
+          nameTextStyle: { color: '#9aa3c7', fontSize: 10 },
+          axisLabel: { color: '#9aa3c7', fontSize: 10 },
+          splitLine: { lineStyle: { color: 'rgba(238,241,249,0.08)' } }
+        },
+        series: [{
+          name: '纳斯达克100',
+          type: 'line',
+          smooth: true,
+          data: [29368,29127,28938,28945,29447,29644,30482,30732,30470,30479,30608,30277,30339,30409,30502,30808,31076,31225,31160,30726,30883],
+          itemStyle: { color: '#4dd8d0' },
+          lineStyle: { color: '#4dd8d0', width: 2 },
+          areaStyle: { color: 'rgba(77,216,208,0.12)' },
+          markPoint: {
+            data: [{
+              type: 'max', name: '近月高点',
+              itemStyle: { color: '#ffb454' },
+              label: { fontSize: 9, color: '#ffd9a0', formatter: '高点 31225' }
+            }]
+          }
+        }]
+      });
+      noteCharts.push(m1);
+    }
+
+    var el2 = document.getElementById('chart-valuation');
+    if (el2){
+      var m2 = echarts.init(el2);
+      m2.setOption({
+        backgroundColor: 'transparent',
+        title: {
+          text: '纳指100 市盈率多口径对比（2026）',
+          left: 'center',
+          textStyle: { color: '#eef1f9', fontSize: 14, fontWeight: 600 }
+        },
+        tooltip: {
+          trigger: 'axis',
+          triggerOn: 'click',
+          renderMode: 'richText',
+          confine: true,
+          backgroundColor: 'rgba(13,18,38,0.95)',
+          borderColor: 'rgba(77,216,208,0.3)',
+          textStyle: { color: '#eef1f9', fontSize: 10, lineHeight: 14 },
+          padding: [6, 8]
+        },
+        legend: {
+          top: 46,
+          itemWidth: 14,
+          itemHeight: 8,
+          textStyle: { color: '#9aa3c7', fontSize: 11 }
+        },
+        grid: { left: 128, right: 46, top: 92, bottom: 30, containLabel: true },
+        xAxis: {
+          type: 'value',
+          name: 'PE（倍）',
+          nameTextStyle: { color: '#9aa3c7', fontSize: 10 },
+          axisLabel: { color: '#9aa3c7', fontSize: 10 },
+          splitLine: { lineStyle: { color: 'rgba(238,241,249,0.08)' } }
+        },
+        yAxis: {
+          type: 'category',
+          data: ['TTM ETF(10-08)','TTM 长周期(8-31)','TTM 快讯(10-08)','TTM 综合(10-10)','TTM 峰值(2Q26)','前瞻 Alt(9-17)','前瞻 共识(2Q26)','前瞻 一财(9-14)','前瞻 WSJ(7-31)'],
+          axisLabel: { color: '#9aa3c7', fontSize: 10 }
+        },
+        series: [
+          {
+            name: 'TTM 滚动市盈率',
+            type: 'bar',
+            barWidth: 9,
+            data: [28.75, 30.31, 30.95, 32.83, 35, null, null, null, null],
+            itemStyle: { color: '#ffb454', borderRadius: [0, 4, 4, 0] },
+            label: {
+              show: true, position: 'right', fontSize: 9, color: '#ffd9a0',
+              formatter: function(p){ return p.value == null ? '' : p.value; }
+            }
+          },
+          {
+            name: '前瞻市盈率',
+            type: 'bar',
+            barWidth: 9,
+            data: [null, null, null, null, null, 24, 25, 26.7, 32.61],
+            itemStyle: { color: '#4dd8d0', borderRadius: [0, 4, 4, 0] },
+            label: {
+              show: true, position: 'right', fontSize: 9, color: '#9ff0ec',
+              formatter: function(p){ return p.value == null ? '' : p.value; }
+            },
+            markLine: {
+              silent: true,
+              symbol: 'none',
+              lineStyle: { type: 'dashed', color: '#9aa3c7' },
+              label: { formatter: '前瞻10年均值≈25', fontSize: 9, color: '#9aa3c7', position: 'insideEndTop' },
+              data: [{ xAxis: 25 }]
+            }
+          }
+        ]
+      });
+      noteCharts.push(m2);
+    }
   }
 })();
 </script>
